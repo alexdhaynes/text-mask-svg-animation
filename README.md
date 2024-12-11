@@ -29,11 +29,12 @@ Figma: [Link](https://www.figma.com/design/Xce2Pl5CuENR2xOcF3gBY3/Pretty-Landing
 ## Attempt 1: Simple Solution
 
 The simple solution is to use the `background-clip` CSS property.
-✅ Text is accessible
-✅ Text is dynamic
-⚠️ Supported in modern browsers; but, no IE support.
-✅ Robust animation
-❌ Not getting the desired "letter window" effect
+
+- ✅ Text is accessible
+- ✅ Text is dynamic
+- ⚠️ Supported in modern browsers; but, no IE support.
+- ✅ Robust animation
+- ❌ Not getting the desired "letter window" effect
 
 ```
 .letter {
@@ -77,11 +78,11 @@ Next, I tried a 100% SVG approach. We are using an SVG `<text>` elment as a `<ma
 
 We then apply the mask to an `<image>` element.
 
-✅ Text is accessible
-✅ Broad browser support.
-✅ Text is dynamic.
-⚠️ SIML implementations vary slightly across browsers, so thorough browser + device QA is required
-❌ Very few attributes on the `<text>` and `<tspan>` elements are animatable (position, rotation, and text length are animatable; scaling is not!)
+- ✅ Text is accessible
+- ✅ Broad browser support.
+- ✅ Text is dynamic.
+- ⚠️ SIML implementations vary slightly across browsers, so thorough browser + device QA is required
+- ❌ Very few attributes on the `<text>` and `<tspan>` elements are animatable (position, rotation, and text length are animatable; scaling is not!)
 
 ```
 <svg width="100%" height="100%">
