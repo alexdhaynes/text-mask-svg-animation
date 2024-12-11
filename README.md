@@ -159,7 +159,15 @@ This attempt is closest to the vision though, so we proceed from here!
 
 ## Attempt 3: Enhancements
 
-Let's refine the experience. I've added several declarative animations to get a floating effect for the letters. I've also added a staggered fade out for the letters, and an animated radial mask to reveal the background image (click the demo link to see this). I've also added a MVP for the final experience -- a simple landing page that plays deep sea ocean sounds.
+Let's refine the experience.
+
+- I've added several declarative animations to get a floating effect for the letters.
+
+- I've also added a staggered fade out for the letters, and an animated radial mask to reveal the background image (click the demo link to see this).
+
+- I've added dynamic text functionality; change the text by appending `?text=your-text` to the url.
+
+- I've also added a MVP for the final experience -- a simple landing page that plays deep sea ocean sounds.
 
 ![Attempt 3: Floaty text](/public/attempt3.gif)
 

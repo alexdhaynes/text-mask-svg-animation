@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+
 import styles from "./SVGFloatingTextEnhanced.module.css";
 
 interface FloatingTextProps {
@@ -7,6 +8,7 @@ interface FloatingTextProps {
 
 const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
   const [showText, setShowText] = useState(false);
+  const [displayText, setDisplayText] = useState(text || "floating");
   const [documentIsLoaded, setDocumentIsLoaded] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
 
@@ -15,6 +17,8 @@ const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
 
   useEffect(() => {
     setDocumentIsLoaded(true);
+    const params = new URLSearchParams(document.location.search).get("text");
+    if (params) setDisplayText(params);
   }, []);
 
   useEffect(() => {
@@ -28,7 +32,7 @@ const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
     const fadeAnimation = Array.from(animateElems).find((elem) => {
       // get the index from the id of the return animation,
       // convert it to number, and see if matches the index of the last animation
-      return +elem.id.split("-")[1] === text.length - 1;
+      return +elem.id.split("-")[1] === displayText.length - 1;
     });
 
     if (!fadeAnimation) return;
@@ -63,7 +67,7 @@ const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
         frame.style.backgroundColor = "#000";
       });
     });
-  }, [documentIsLoaded]);
+  }, [documentIsLoaded, displayText]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -116,7 +120,7 @@ const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
             </button>
           </article>
         )}
-        {documentIsLoaded && (
+        {documentIsLoaded && displayText && (
           <svg width="100%" height="100%" className={styles.svg}>
             <defs>
               <mask id="radialMask" x="0" y="0" width="100%" height="100%">
@@ -144,7 +148,7 @@ const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
                 fill="#ffffff"
                 textAnchor="middle" // Center the text horizontally
               >
-                {text.split("").map((letter, index) => (
+                {displayText.split("").map((letter, index) => (
                   <tspan
                     key={index}
                     fontFamily="'Lexend Deca', sans-serif"
