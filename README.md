@@ -30,12 +30,6 @@ Figma: [Link](https://www.figma.com/design/Xce2Pl5CuENR2xOcF3gBY3/Pretty-Landing
 
 The simple solution is to use the `background-clip` CSS property.
 
-- ✅ Text is accessible
-- ✅ Text is dynamic
-- ⚠️ Supported in modern browsers; but, no IE support.
-- ✅ Robust animation
-- ❌ Not getting the desired "letter window" effect
-
 ```
 .letter {
   /* ... letter styles and animation here */
@@ -70,6 +64,12 @@ Attempt 1: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733857752
 
 Src: `/src/attempt1/AnimatedMaskedText.tsx`
 
+- ✅ Text is accessible
+- ✅ Text is dynamic
+- ⚠️ Supported in modern browsers; but, no IE support.
+- ✅ Robust animation
+- ❌ Not getting the desired "letter window" effect
+
 ## Attempt 1: Drawbacks
 
 The `background-clip: text` property creates an effect as though the background image had been cut out into letter shapes (eg: a ransom letter cut out of a magazine), and those cutout letters are then animating down a white sheet of paper. We're not getting the _letter-shaped window_ effect.
@@ -81,12 +81,6 @@ Browser support for `background-clip` is moderate with caveats in several browse
 Next, I tried a 100% SVG approach. We are using an SVG `<text>` elment as a `<mask>`. Each letter is wrapped in a `<tspan>` element so we can animate them individually using the `<animate>` tag.
 
 We then apply the mask to an `<image>` element.
-
-- ✅ Text is accessible
-- ✅ Broad browser support.
-- ✅ Text is dynamic.
-- ⚠️ SIML implementations vary slightly across browsers, so thorough browser + device QA is required
-- ❌ Very few attributes on the `<text>` and `<tspan>` elements are animatable (position, rotation, and text length are animatable; scaling is not!)
 
 ```
 <svg width="100%" height="100%">
@@ -134,6 +128,12 @@ Attempt 2: [Demo Link](https://text-mask-lp.vercel.app/attempt2)
 Attempt 2: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733858380/floating-svg_x0u0mq.mp4)
 
 So we've gotten the "window" effect we want! However, there are drawbacks here.
+
+- ✅ Text is accessible
+- ✅ Broad browser support.
+- ✅ Text is dynamic.
+- ⚠️ SIML implementations vary slightly across browsers, so thorough browser + device QA is required
+- ❌ Very few attributes on the `<text>` and `<tspan>` elements are animatable (position, rotation, and text length are animatable; scaling is not!)
 
 ### Attempt 2 Drawbacks:
 
