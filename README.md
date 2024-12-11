@@ -154,6 +154,8 @@ This attempt is closest to the vision though, so we proceed from here!
 
 Let's refine the experience. We'll add several declarative animations to get a floating effect for the letters. I've also added a staggered fade out for the letters, and an animated radial mask to reveal the background image. I've also added a MVP for the final experience -- a simple landing page that plays deep sea ocean sounds.
 
+![Attempt 3: Floaty text](/public/attempt3.gif)
+
 Attempt 3: [Link](https://text-mask-lp.vercel.app/attempt3)
 
 Attempt 3: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733932793/attempt3_tzxezj.mp4)
