@@ -167,7 +167,7 @@ Let's refine the experience.
 
 - I've added dynamic text functionality; change the text by appending `?text=your-text` to the url.
 
-- I've also added a MVP for the final experience -- a simple landing page that plays deep sea ocean sounds.
+- I've also added an MVP for the final experience -- a simple landing page that plays deep sea ocean sounds.
 
 ![Attempt 3: Floaty text](/public/attempt3.gif)
 
