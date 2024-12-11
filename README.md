@@ -174,7 +174,7 @@ Let's refine the experience.
 Attempt 3:
 
 - [Demo Link](https://text-mask-lp.vercel.app/attempt3)
-- [Demo Link with URL Parameter](https://text-mask-lp.vercel.app/attempt3?text=swimming)
+- [Demo Link with Dynamic Text via URL Parameter](https://text-mask-lp.vercel.app/attempt3?text=swimming)
 
 Attempt 3: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733932793/attempt3_tzxezj.mp4)
 
