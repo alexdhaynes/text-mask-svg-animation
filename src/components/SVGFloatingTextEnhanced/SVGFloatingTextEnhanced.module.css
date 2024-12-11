@@ -20,14 +20,16 @@
   margin-top: -6%;
   margin-left: auto;
   margin-right: auto;
+}
 
-  p {
-    margin-bottom: 0.25em;
-    text-align: center;
-  }
+.mainContent p {
+  color: #fff;
+  margin-bottom: 0.25em;
+  text-align: center;
 }
 
 .button {
+  background: none;
   --button-active-color: #a3e7ec;
   border: solid white 4px;
   border-radius: 40px;
