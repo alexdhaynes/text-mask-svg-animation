@@ -97,7 +97,6 @@ const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
                 width="40"
                 height="40"
                 viewBox="0 0 24 24"
-                className={styles.svgButton}
               >
                 {isPaused ? (
                   <g fill="none" fillRule="evenodd">
