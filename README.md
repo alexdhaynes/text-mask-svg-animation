@@ -24,7 +24,7 @@ I also want the flexibility to use any string of letters, any `font-family`, and
 
 Figma: [Link](https://www.figma.com/design/Xce2Pl5CuENR2xOcF3gBY3/Pretty-Landing-Page?node-id=0-1&t=NtWND3PZhlDAaaUM-1)
 
-**Restriction**: No libraries! Can you accomplish this with browser APIs only? Also go for the least complex solution possible.
+**Restriction**: No libraries! Let's see how far we can get with browser APIs only. Seconly, I'll go for the least complex solution possible.
 
 ## Attempt 1: Simple Solution
 
