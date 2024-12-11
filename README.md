@@ -129,12 +129,6 @@ Attempt 2: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733858380
 
 So we've gotten the "window" effect we want! There are both advantages and drawbacks here.
 
-- ✅ Text is accessible
-- ✅ Broad browser support.
-- ✅ Text is dynamic.
-- ⚠️ SIML implementations vary slightly across browsers, so thorough browser + device QA is required
-- ❌ Very few attributes on the `<text>` and `<tspan>` elements are animatable (position, rotation, and text length are animatable; scaling is not!)
-
 ### Attempt 2 Drawbacks:
 
 You can't use CSS transform on `<tspan>` SVG letters (SVG uses different rendering context than HTML elements).
