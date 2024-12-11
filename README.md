@@ -64,6 +64,8 @@ Use JS to split the word and apply the mask class to each letter, staggering the
 
 ![Attempt 1: Ransom-note letters effect](/public/attempt1.gif)
 
+Attempt 1: [Link](https://text-mask-lp.vercel.app/attempt1)
+
 Attempt 1: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733857752/attempt1_djf6gl.mp4)
 
 Src: `/src/attempt1/AnimatedMaskedText.tsx`
@@ -127,6 +129,8 @@ SIML animation browser support is pretty wide: [Link](https://caniuse.com/?searc
 
 ![Attempt 2: Letter-window effect achieved](/public/attempt2.gif)
 
+Attempt 2: [Link](https://text-mask-lp.vercel.app/attempt2)
+
 Attempt 2: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733858380/floating-svg_x0u0mq.mp4)
 
 So we've gotten the "window" effect we want! However, there are drawbacks here.
@@ -146,7 +150,17 @@ SVG Animate Spec:[Link](https://svgwg.org/specs/animations/#AnimateElement)
 
 This attempt is closest to the vision though, so we proceed from here!
 
-## Adding the expand effect
+## Attempt 3: Enhancements
+
+Let's refine the experience. We'll add several declarative animations to get a floating effect for the letters. I've also added a staggered fade out for the letters, and an animated radial mask to reveal the background image. I've also added a MVP for the final experience -- a simple landing page that plays deep sea ocean sounds.
+
+Attempt 3: [Link](https://text-mask-lp.vercel.app/attempt3)
+
+Attempt 3: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733932793/attempt3_tzxezj.mp4)
+
+I'm 80% happy with this. The radial mask reveal is a little simplistic. The vision was to have each letter expand until the until the entire background is revealed. But for that, we'll need to abandon `<tspan>` and use `<path>` elements.
+
+## Adding the letter expand effect
 
 The next step is to add the expand effect once the letters settle at the bottom of the viewport. But there is a problem with using the SVG: `<tspan>` elements can't be transformed with `<animateTransform>`.
 
