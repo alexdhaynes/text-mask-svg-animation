@@ -194,6 +194,6 @@ We need a more flexible element than `<text> > <tspan>`. What if we found a way 
 
 But writing a function to convert styled strings to `<paths>` via the Canvas Context API is breaking our "keep it simple" rule.
 
-Since the ability to change text dynamically is not critical to the landing page, there is no real issue with using predefined `<path>` elements for each letter. We lose the ability to change the text dynamically (for now), but we'll gain huge flexibility in animation, plus a better path to perfomrance optimization.
+Since the ability to change text dynamically is not critical to the landing page, there is no real issue with using predefined `<path>` elements for each letter. We lose the ability to change the text dynamically (for now), but we'll gain huge flexibility in animation, plus a better path to performance optimization.
 
 So let's try using letter `<path>` elements directly instead of `<text> > <tspan>`. If we find that we need the ability to dynamically change the text, we'll revisit writing a function that will convert text strings into `<path>` elements.
