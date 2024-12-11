@@ -20,7 +20,7 @@ As the letters moves, different portions of the background are revealed.
 
 I also want the flexibility to use any string of letters, any `font-family`, and `font-size`. The font's letter kerning should be preserved.
 
-![The gist of the effect](/vision.jpg)
+![The gist of the effect](/public/vision.jpg)
 
 Figma: [Link](https://www.figma.com/design/Xce2Pl5CuENR2xOcF3gBY3/Pretty-Landing-Page?node-id=0-1&t=NtWND3PZhlDAaaUM-1)
 
