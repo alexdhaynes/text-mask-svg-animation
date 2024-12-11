@@ -1,0 +1,79 @@
+.content {
+  align-items: center !important; /* yes, this is a necessary important */
+}
+
+.svg {
+  position: absolute;
+}
+
+.floatingText {
+  font-size: 16vw; /* sizing as percentage of viewport width is AMAZING for easy responsive */
+}
+
+.mainContent {
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -6%;
+  margin-left: auto;
+  margin-right: auto;
+
+  p {
+    margin-bottom: 0.25em;
+    text-align: center;
+  }
+}
+
+.button {
+  --button-active-color: #a3e7ec;
+  border: solid white 4px;
+  border-radius: 40px;
+  padding: 12px;
+  transition: border 1s;
+}
+
+.button:hover {
+  border-color: var(--button-active-color);
+  svg {
+    color: var(--button-active-color);
+    transition: color 0.25s;
+  }
+}
+
+/* .button:active {
+  border: 4px solid transparent;
+}
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+} */
+
+.fadeIn {
+  opacity: 0;
+  animation-duration: 1.25s;
+  animation-fill-mode: forwards;
+  transition: transform 0.25s;
+}
+
+.fadeInText {
+  transform: translateY(-50%);
+  animation-name: fadeIn;
+  animation-delay: 0.15s;
+}
+
+.fadeInButton {
+  transform: translateY(-25%);
+
+  animation-name: fadeIn;
+  animation-delay: 1.25s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
