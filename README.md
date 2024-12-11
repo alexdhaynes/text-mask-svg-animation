@@ -177,6 +177,42 @@ Let's refine the experience.
 
 I'm 80% happy with this. The radial mask reveal is a little simplistic. The vision was to have each letter expand until the until the entire background is revealed. But for that, we'll need to abandon `<tspan>` and use `<path>` elements.
 
+- ✅ Text is accessible
+- ✅ Text is dynamic.
+- ⚠️ SIML implementations vary slightly across browsers, so thorough browser + device QA is required
+- ❌ Very few attributes on the `<text>` and `<tspan>` elements are animatable (position, rotation, and text length are animatable; scaling is not!)
+- ❌ Complex animation strains rendering performance.
+- ❌ Complex animation does not run in Firefox
+
+### Drawbacks of Attempt 3
+
+MAJOR drawback is that the animation isn't running in Firefox.
+
+When we specify that an animation should begin relative to the end of another animation, Firefox throws warning when using a dynamic id, and the animation doesn't run:
+
+```
+<animate
+    id={`sink-${index}`}
+/>
+
+<animate
+    begin={`sink-${index}.end + 1s`}
+/>
+```
+
+Firefox doesn't run the animation when there are complex easing properties on the `<animate>` declarations:
+
+```
+<animate
+    ...
+    fill="freeze"
+    calcMode="spline"
+    keySplines="0.42 0 0.58 1"
+/>
+```
+
+It will take some research to dig into why Safari and Chrome handle these cases, but Firefox does not, and to find a suitable solution. Moving on for now...
+
 ## Attempt 4: Adding the letter expand effect
 
 The next step is to add the expand effect once the letters settle at the bottom of the viewport. But there is a problem with using the SVG: `<tspan>` elements can't be transformed with `<animateTransform>`.
