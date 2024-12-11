@@ -37,7 +37,7 @@
   transition: border 1s;
 }
 
-.button:hover svg {
+.button svg {
   color: #fff;
 }
 
