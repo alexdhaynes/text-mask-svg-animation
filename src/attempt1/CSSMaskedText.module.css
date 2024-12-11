@@ -11,11 +11,14 @@
   background-clip: text;
   color: transparent;
   transform: translateY(-100vh);
+  -webkit-transform: translateY(-100%);
   animation: sink 4s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  -webkit-animation: sink 4s cubic-bezier(0.7, 0, 0.3, 1) forwards;
 }
 
 @keyframes sink {
   100% {
     transform: translateY(0);
+    -webkit-transform: translateY(0);
   }
 }
