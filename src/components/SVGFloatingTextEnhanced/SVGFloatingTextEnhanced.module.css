@@ -37,12 +37,17 @@
   transition: border 1s;
 }
 
+.button:hover svg {
+  color: #fff;
+}
+
 .button:hover {
   border-color: var(--button-active-color);
-  svg {
-    color: var(--button-active-color);
-    transition: color 0.25s;
-  }
+}
+
+.button:hover svg {
+  color: var(--button-active-color);
+  transition: color 0.25s;
 }
 
 /* .button:active {
