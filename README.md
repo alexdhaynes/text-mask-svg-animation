@@ -127,7 +127,7 @@ Attempt 2: [Demo Link](https://text-mask-lp.vercel.app/attempt2)
 
 Attempt 2: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733858380/floating-svg_x0u0mq.mp4)
 
-So we've gotten the "window" effect we want! However, there are drawbacks here.
+So we've gotten the "window" effect we want! There are both advantages and drawbacks here.
 
 - ✅ Text is accessible
 - ✅ Broad browser support.
