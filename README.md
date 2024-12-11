@@ -62,6 +62,8 @@ Use JS to split the word and apply the mask class to each letter, staggering the
 ))
 ```
 
+![Attempt 1: Ransom-note letters effect](/public/attempt1.gif)
+
 Attempt 1: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733857752/attempt1_djf6gl.mp4)
 
 Src: `/src/attempt1/AnimatedMaskedText.tsx`
@@ -122,6 +124,8 @@ We then apply the mask to an `<image>` element.
 ```
 
 SIML animation browser support is pretty wide: [Link](https://caniuse.com/?search=svg%20animation)
+
+![Attempt 2: Letter-window effect achieved](/public/attempt2.gif)
 
 Attempt 2: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733858380/floating-svg_x0u0mq.mp4)
 
