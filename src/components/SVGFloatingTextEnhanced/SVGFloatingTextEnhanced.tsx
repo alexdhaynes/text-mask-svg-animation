@@ -121,7 +121,11 @@ const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
           </article>
         )}
         {documentIsLoaded && displayText && (
-          <svg width="100%" height="100%" className={styles.svg}>
+          <svg
+            width="100%"
+            height="100%"
+            className={`${styles.svg} ${styles.fadeIn} ${styles.fadeInSvg}`}
+          >
             <defs>
               <mask id="radialMask" x="0" y="0" width="100%" height="100%">
                 <circle cx="63%" cy="70%" r="0" fill="white">

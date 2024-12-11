@@ -58,6 +58,11 @@
   transition: transform 0.25s;
 }
 
+.fadeInSvg {
+  animation-duration: 0.25s;
+  animation-name: fadeInOpacity;
+}
+
 .fadeInText {
   transform: translateY(-50%);
   animation-name: fadeIn;
@@ -75,5 +80,11 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeInOpacity {
+  to {
+    opacity: 1;
   }
 }
