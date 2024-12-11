@@ -58,9 +58,11 @@ Use JS to split the word and apply the mask class to each letter, staggering the
 
 ![Attempt 1: Ransom-note letters effect](/public/attempt1.gif)
 
-Attempt 1: [Demo Link](https://text-mask-lp.vercel.app/attempt1)
+Attempt 1:
 
-Attempt 1: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733857752/attempt1_djf6gl.mp4)
+- [Demo Link](https://text-mask-lp.vercel.app/attempt1)
+
+- [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733857752/attempt1_djf6gl.mp4)
 
 Src: `/src/attempt1/AnimatedMaskedText.tsx`
 
@@ -123,9 +125,11 @@ SIML animation browser support is pretty wide: [CanIUse Ref](https://caniuse.com
 
 ![Attempt 2: Letter-window effect achieved](/public/attempt2.gif)
 
-Attempt 2: [Demo Link](https://text-mask-lp.vercel.app/attempt2)
+Attempt 2:
 
-Attempt 2: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733858380/floating-svg_x0u0mq.mp4)
+- [Demo Link](https://text-mask-lp.vercel.app/attempt2)
+
+- [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733858380/floating-svg_x0u0mq.mp4)
 
 So we've gotten the "window" effect we want! There are both advantages and drawbacks here.
 
@@ -168,9 +172,10 @@ Let's refine the experience.
 Attempt 3:
 
 - [Demo Link](https://text-mask-lp.vercel.app/attempt3)
+
 - [Demo Link with Dynamic Text via URL Parameter](https://text-mask-lp.vercel.app/attempt3?text=swimming)
 
-Attempt 3: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733932793/attempt3_tzxezj.mp4)
+- [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733932793/attempt3_tzxezj.mp4)
 
 I'm 80% happy with this. The radial mask reveal is a little simplistic. The vision was to have each letter expand until the until the entire background is revealed. But for that, we'll need to abandon `<tspan>` and use `<path>` elements.
 
