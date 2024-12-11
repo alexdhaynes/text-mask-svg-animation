@@ -1,12 +1,15 @@
 import { StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, useRoutes } from "react-router-dom";
-
-import routes from "~react-pages";
+import { BrowserRouter, useRoutes, RouteObject } from "react-router-dom";
 import "./styles/global.css";
+import routes from "~react-pages";
 
 function App() {
-  return <Suspense fallback={<p>Loading...</p>}>{useRoutes(routes)}</Suspense>;
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      {useRoutes(routes as unknown as RouteObject[])}
+    </Suspense>
+  );
 }
 
 const app = createRoot(document.getElementById("root")!);
