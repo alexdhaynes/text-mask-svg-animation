@@ -144,7 +144,14 @@ Our options for animating the letters are:
 - Add an `<animate>` element to each `<tspan>` letter in the SVG to animate positions.
 - Add `<animateTransform>` property to transform: `translate`, `scale`, `rotate`, `skew` properties.
 
-So that's two different SVG elements for _every single letter_. Cumbersome!
+In order to animate attributes on the letters, we'll need two different SVG tags. And since SVG animation is declarative, we can only animate one attribute at a time, and we need multiple tags for complex animations. The more `<animate>` tags we use -- which is necessary for refined animation -- the greater the rendering performance implication.
+
+- ✅ Text is accessible
+- ✅ Broad browser support.
+- ✅ Text is dynamic.
+- ⚠️ SIML implementations vary slightly across browsers, so thorough browser + device QA is required
+- ❌ Very few attributes on the `<text>` and `<tspan>` elements are animatable (position, rotation, and text length are animatable; scaling is not!)
+- ❌ Complex animation strains rendering performance.
 
 SVG Animate Spec:[Link](https://svgwg.org/specs/animations/#AnimateElement)
 
@@ -162,16 +169,20 @@ Attempt 3: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733932793
 
 I'm 80% happy with this. The radial mask reveal is a little simplistic. The vision was to have each letter expand until the until the entire background is revealed. But for that, we'll need to abandon `<tspan>` and use `<path>` elements.
 
-## Adding the letter expand effect
+## Attempt 4: Adding the letter expand effect
 
 The next step is to add the expand effect once the letters settle at the bottom of the viewport. But there is a problem with using the SVG: `<tspan>` elements can't be transformed with `<animateTransform>`.
 
 What can we do?
 
-### Canvas?
+### Canvas and Context API?
 
-We need a more flexible element than `<text> > <tspan>`. What if we found a way to convert text into a `<path>`? Then the world would be our oyster in terms of animation flexibility...
+We need a more flexible element than `<text> > <tspan>`. What if we found a way to convert text into a `<path>` using the Context API? Then the world would be our oyster in terms of animation flexibility...
 
 ### Keep it simple
 
-At the moment, the ability to change text dynamically is not critical. So let's try using letter `<path>` elements directly instead of `<text> > <tspan>`. If we find that we need the ability to dynamically change the text, we'll look into writing a function that will convert text strings into `<path>` elements.
+But writing a function to convert styled strings to `<paths>` via the Canvas Context API is breaking our "keep it simple" rule.
+
+Since the ability to change text dynamically is not critical to the landing page, there is no real issue with using predefined `<path>` elements for each letter. We lose the ability to change the text dynamically (for now), but we'll gain huge flexibility in animation, plus a better path to perfomrance optimization.
+
+So let's try using letter `<path>` elements directly instead of `<text> > <tspan>`. If we find that we need the ability to dynamically change the text, we'll revisit writing a function that will convert text strings into `<path>` elements.
