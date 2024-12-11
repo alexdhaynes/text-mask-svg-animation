@@ -74,7 +74,7 @@ Src: `/src/attempt1/AnimatedMaskedText.tsx`
 
 The `background-clip: text` property creates an effect as though the background image had been cut out into letter shapes (eg: a ransom letter cut out of a magazine), and those cutout letters are then animating down a white sheet of paper. We're not getting the _letter-shaped window_ effect.
 
-Browser support for `background-clip` is moderate with caveats in several browsers; and no support in IE: [Link](https://caniuse.com/?search=background-clip).
+Browser support for `background-clip` is moderate with caveats in several browsers; and no support in IE: [CanIUse Ref](https://caniuse.com/?search=background-clip).
 
 ## Attempt 2: SVG Approach
 
@@ -119,7 +119,7 @@ We then apply the mask to an `<image>` element.
 </svg>
 ```
 
-SIML animation browser support is pretty wide: [Link](https://caniuse.com/?search=svg%20animation)
+SIML animation browser support is pretty wide: [CanIUse Ref](https://caniuse.com/?search=svg%20animation)
 
 ![Attempt 2: Letter-window effect achieved](/public/attempt2.gif)
 
