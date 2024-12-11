@@ -28,8 +28,10 @@ Figma: [Link](https://www.figma.com/design/Xce2Pl5CuENR2xOcF3gBY3/Pretty-Landing
 
 The simple solution is to use the `background-clip` CSS property.
 ✅ Text is accessible
+✅ Text is dynamic
 ⚠️ Supported in modern browsers; but, no IE support.
 ✅ Robust animation
+❌ Not getting the desired "letter window" effect
 
 ```
 .letter {
@@ -75,7 +77,9 @@ We then apply the mask to an `<image>` element.
 
 ✅ Text is accessible
 ✅ Broad browser support.
-❌ Limited animation for the `<text>` and `<tspan>` elements.
+✅ Text is dynamic.
+⚠️ SIML implementations vary slightly across browsers, so thorough browser + device QA is required
+❌ Very few attributes on the `<text>` and `<tspan>` elements are animatable (position, rotation, and text length are animatable; scaling is not!)
 
 ```
 <svg width="100%" height="100%">
@@ -141,4 +145,10 @@ The next step is to add the expand effect once the letters settle at the bottom 
 
 What can we do?
 
-We need a more flexible element than `<tspan>`/`<text>`. What if we found a way to convert text into a `<path>`? Then the world would be our oyster in terms of animation flexibility...
+### Canvas?
+
+We need a more flexible element than `<text> > <tspan>`. What if we found a way to convert text into a `<path>`? Then the world would be our oyster in terms of animation flexibility...
+
+### Keep it simple
+
+At the moment, the ability to change text dynamically is not critical. So let's try using letter `<path>` elements directly instead of `<text> > <tspan>`. If we find that we need the ability to dynamically change the text, we'll look into writing a function that will convert text strings into `<path>` elements.
