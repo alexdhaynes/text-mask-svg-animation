@@ -64,7 +64,7 @@ Use JS to split the word and apply the mask class to each letter, staggering the
 
 ![Attempt 1: Ransom-note letters effect](/public/attempt1.gif)
 
-Attempt 1: [Link](https://text-mask-lp.vercel.app/attempt1)
+Attempt 1: [Demo Link](https://text-mask-lp.vercel.app/attempt1)
 
 Attempt 1: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733857752/attempt1_djf6gl.mp4)
 
@@ -129,7 +129,7 @@ SIML animation browser support is pretty wide: [Link](https://caniuse.com/?searc
 
 ![Attempt 2: Letter-window effect achieved](/public/attempt2.gif)
 
-Attempt 2: [Link](https://text-mask-lp.vercel.app/attempt2)
+Attempt 2: [Demo Link](https://text-mask-lp.vercel.app/attempt2)
 
 Attempt 2: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733858380/floating-svg_x0u0mq.mp4)
 
@@ -152,11 +152,11 @@ This attempt is closest to the vision though, so we proceed from here!
 
 ## Attempt 3: Enhancements
 
-Let's refine the experience. We'll add several declarative animations to get a floating effect for the letters. I've also added a staggered fade out for the letters, and an animated radial mask to reveal the background image. I've also added a MVP for the final experience -- a simple landing page that plays deep sea ocean sounds.
+Let's refine the experience. I've added several declarative animations to get a floating effect for the letters. I've also added a staggered fade out for the letters, and an animated radial mask to reveal the background image (click the demo link to see this). I've also added a MVP for the final experience -- a simple landing page that plays deep sea ocean sounds.
 
 ![Attempt 3: Floaty text](/public/attempt3.gif)
 
-Attempt 3: [Link](https://text-mask-lp.vercel.app/attempt3)
+Attempt 3: [Demo Link](https://text-mask-lp.vercel.app/attempt3)
 
 Attempt 3: [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733932793/attempt3_tzxezj.mp4)
 
