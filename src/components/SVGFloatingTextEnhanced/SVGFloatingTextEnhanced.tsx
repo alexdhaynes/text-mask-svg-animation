@@ -9,21 +9,17 @@ interface FloatingTextProps {
 const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
   const [showText, setShowText] = useState(false);
   const [displayText, setDisplayText] = useState(text || "floating");
-  const [documentIsLoaded, setDocumentIsLoaded] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
 
   // store audio
   const audioRef = useRef(new Audio("/underwater-ambience-6201.mp3"));
 
   useEffect(() => {
-    setDocumentIsLoaded(true);
     const params = new URLSearchParams(document.location.search).get("text");
     if (params) setDisplayText(params);
   }, []);
 
   useEffect(() => {
-    if (!documentIsLoaded) return;
-
     // select the fade animations
     let animateElems = document.querySelectorAll("animate[id^=fade]");
     if (!animateElems) return;
@@ -67,7 +63,7 @@ const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
         frame.style.backgroundColor = "#000";
       });
     });
-  }, [documentIsLoaded, displayText]);
+  }, [displayText]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -120,12 +116,8 @@ const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
             </button>
           </article>
         )}
-        {documentIsLoaded && displayText && (
-          <svg
-            width="100%"
-            height="100%"
-            className={`${styles.svg} ${styles.fadeIn} ${styles.fadeInSvg}`}
-          >
+        {displayText && (
+          <svg width="100%" height="100%" className={styles.svg}>
             <defs>
               <mask id="radialMask" x="0" y="0" width="100%" height="100%">
                 <circle cx="63%" cy="70%" r="0" fill="white">
