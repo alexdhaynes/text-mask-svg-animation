@@ -72,7 +72,7 @@ Src: `/src/attempt1/AnimatedMaskedText.tsx`
 - ✅ Robust animation
 - ❌ Not getting the desired "letter window" effect
 
-## Attempt 1: Drawbacks
+### Drawbacks of Attempt 1
 
 The `background-clip: text` property creates an effect as though the background image had been cut out into letter shapes (eg: a ransom letter cut out of a magazine), and those cutout letters are then animating down a white sheet of paper. We're not getting the _letter-shaped window_ effect.
 
@@ -142,7 +142,7 @@ So we've gotten the "window" effect we want! There are both advantages and drawb
 
 SVG Animate Spec:[Link](https://svgwg.org/specs/animations/#AnimateElement)
 
-### Attempt 2 Drawbacks:
+### Drawbacks of Attempt 2
 
 You can't use CSS transform on `<tspan>` SVG letters (SVG uses different rendering context than HTML elements).
 
@@ -155,7 +155,7 @@ In order to animate attributes on the letters, we'll need two different SVG tags
 
 This attempt is closest to the vision though, so we proceed from here!
 
-## Attempt 3: Enhancements
+## Attempt 3: Enhancing the SVG Approach
 
 Let's refine the experience.
 
