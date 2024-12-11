@@ -58,13 +58,11 @@ Use JS to split the word and apply the mask class to each letter, staggering the
 
 ![Attempt 1: Ransom-note letters effect](/public/attempt1.gif)
 
-Attempt 1:
+#### Attempt 1:
 
 - [Demo Link](https://text-mask-lp.vercel.app/attempt1)
 
 - [Video](https://res.cloudinary.com/dufgddjc5/video/upload/v1733857752/attempt1_djf6gl.mp4)
-
-Src: `/src/attempt1/AnimatedMaskedText.tsx`
 
 - ✅ Text is accessible
 - ✅ Text is dynamic
@@ -125,7 +123,7 @@ SIML animation browser support is pretty wide: [CanIUse Ref](https://caniuse.com
 
 ![Attempt 2: Letter-window effect achieved](/public/attempt2.gif)
 
-Attempt 2:
+#### Attempt 2:
 
 - [Demo Link](https://text-mask-lp.vercel.app/attempt2)
 
@@ -169,7 +167,7 @@ Let's refine the experience.
 
 ![Attempt 3: Floaty text](/public/attempt3.gif)
 
-Attempt 3:
+#### Attempt 3:
 
 - [Demo Link](https://text-mask-lp.vercel.app/attempt3)
 
