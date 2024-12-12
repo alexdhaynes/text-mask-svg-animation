@@ -21,6 +21,12 @@ const IndexPage = () => {
           <a href="/attempt3">Link</a>
         </dd>
       </div>
+      <div>
+        <dt>Attempt 4:</dt>
+        <dd>
+          <a href="/attempt4">Link</a>
+        </dd>
+      </div>
     </dl>
   );
 };
