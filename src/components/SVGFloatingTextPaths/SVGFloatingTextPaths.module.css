@@ -1,0 +1,43 @@
+.backgroundDiv {
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  position: absolute;
+  background-image: url("/underwater.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-mask-image: url(#letterMask);
+  mask-image: url(#letterMask);
+  mask-repeat: no-repeat;
+}
+
+/* .svgContainer[data-name] {
+  transform: translateY(-100vh); 
+  animation: combinedAnimation 7s ease-in-out
+    calc(var(--animation-order) * 0.5s);
+  animation-fill-mode: forwards;
+} */
+
+@keyframes combinedAnimation {
+  0% {
+    transform: translateY(-100vh);
+  }
+  26.67% {
+    /* Sink */
+    transform: translateY(0);
+  }
+  53.33% {
+    /* Float up */
+    transform: translateY(-40px);
+  }
+  80% {
+    /* Float down */
+    transform: translateY(30px);
+  }
+
+  100% {
+    /* Return to baseline */
+    transform: translateY(0);
+  }
+}

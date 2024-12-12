@@ -26,7 +26,7 @@ Figma: [Link](https://www.figma.com/design/Xce2Pl5CuENR2xOcF3gBY3/Pretty-Landing
 
 **Restriction**: No libraries! Let's see how far we can get with browser APIs only. Secondly, I'll go for the least complex solution possible.
 
-## Attempt 1: Simple Solution
+## Attempt 1: CSS Background Clip
 
 The simple solution is to use the `background-clip` CSS property.
 
@@ -76,7 +76,7 @@ The `background-clip: text` property creates an effect as though the background 
 
 Browser support for `background-clip` is moderate with caveats in several browsers; and no support in IE: [CanIUse Ref](https://caniuse.com/?search=background-clip).
 
-## Attempt 2: SVG Approach
+## Attempt 2: SVG Text Animation
 
 Next, I tried a 100% SVG approach. We are using an SVG `<text>` elment as a `<mask>`. Each letter is wrapped in a `<tspan>` element so we can animate them individually using the `<animate>` tag.
 
@@ -153,7 +153,7 @@ In order to animate attributes on the letters, we'll need two different SVG tags
 
 This attempt is closest to the vision though, so we proceed from here!
 
-## Attempt 3: Enhancing the SVG Approach
+## Attempt 3: SVG Text Animation, Refined
 
 Let's refine the experience.
 
@@ -182,11 +182,9 @@ I'm 80% happy with this. The radial mask reveal is a little simplistic. The visi
 - ⚠️ SIML implementations vary slightly across browsers, so thorough browser + device QA is required
 - ❌ Very few attributes on the `<text>` and `<tspan>` elements are animatable (position, rotation, and text length are animatable; scaling is not!)
 - ❌ Complex animation strains rendering performance.
-- ❌ Complex animation does not run in Firefox
+- ❌ Animation easing property breaks in Firefox
 
 ### Drawbacks of Attempt 3
-
-MAJOR drawback is that the animation isn't running in Firefox.
 
 When we specify that an animation should begin relative to the end of another animation, Firefox throws warning when using a dynamic id, and the animation doesn't run:
 
@@ -211,22 +209,79 @@ Firefox doesn't run the animation when there are complex easing properties on th
 />
 ```
 
-It will take some research to dig into why Safari and Chrome handle these cases, but Firefox does not, and to find a suitable solution. Moving on for now...
+It will take some research to dig into why Safari and Chrome handle SVG animation structured this way, but Firefox does not. Here's my process for researching browser-specific bugs:
 
-## Attempt 4: Adding the letter expand effect
+#### My process for diving into odd-man-out browser behavior
 
-The next step is to add the expand effect once the letters settle at the bottom of the viewport. But there is a problem with using the SVG: `<tspan>` elements can't be transformed with `<animateTransform>`.
+- Read the [SVG animate spec](https://www.w3.org/TR/SVG11/animate.html#AnimateElement) and ensure all `<animate>` attributes are being used to spec
 
-What can we do?
+- Search for similar problems posted in the [Mozilla support forum](https://support.mozilla.org/ca/questions/firefox)
 
-### Canvas and Context API?
+- Look through Mozilla's issue tracker, [Bugzilla](https://bugzilla.mozilla.org/home), for any bugs related to SVG animaiton
 
-We need a more flexible element than `<text> > <tspan>`. What if we found a way to convert text into a `<path>` using the Context API? Then the world would be our oyster in terms of animation flexibility...
+## Attempt 4: Adding the letter expand effect with SVG Paths
 
-### Keep it simple
+The next step is to add the expand effect once the letters settle at the bottom of the viewport. But there is a problem with our current SVG implementation: `<tspan>` elements can't be transformed with `<animateTransform>`.
 
-But writing a function to convert styled strings to `<paths>` via the Canvas Context API is breaking our "keep it simple" rule.
-
-Since the ability to change text dynamically is not critical to the landing page, there is no real issue with using predefined `<path>` elements for each letter. We lose the ability to change the text dynamically (for now), but we'll gain huge flexibility in animation, plus a better path to performance optimization.
+Since the ability to change text dynamically is not critical to the landing page, there is no real issue with using predefined `<path>` elements for each letter. We lose the ability to change the text dynamically, but we'll gain huge flexibility in animation, plus a better path to performance optimization.
 
 So let's try using letter `<path>` elements directly instead of `<text> > <tspan>`. If we find that we need the ability to dynamically change the text, we'll revisit writing a function that will convert text strings into `<path>` elements.
+
+... (4 hours later)
+
+The structure using `<path>`:
+
+```
+<defs>
+<mask id="letterMask" x="0" y="0" width="100%" height="100%">
+    <g>
+        {"FLOATING".split("").map((letter, index) => {
+            const letterSpacing = 190; // have to manually specify letter spacing
+            const xPosition = index * letterSpacing; // manually specify xPos too
+            const yPosition = 50;
+
+            return (
+            <LetterPath
+                key={letter}
+                letter={letter}
+                x={+xPosition}
+                y={yPosition}
+            />
+            );
+        })}
+    </g>
+</mask>
+</defs>
+```
+
+### Drawbacks of using `<path>`
+
+It's been a few hours and I have implemented a basic animation using `<path>` elements for each letter, all grouped in a `<g>` tag. But there are some MAJOR drawbacks already.
+
+- ❌ **Manual labor**: we have to convert the text to paths in Illustrator, then manually simplify the points in each path
+- ❌ **No kerning**: By using `<path>` instead of `<text> > <tspan>`, we lose the font's natural kerning. There is an uncanny-valley effect when manually setting the letter spacing.
+- ❌ **Not dynamic**: We can't dynamically update the text or font, since we are using predefined paths. We _could_ create a predefined path for every letter, but we would still be restricted to one font only.
+- ❌ **Not inherently accessible**: We lose the inherent accessibility benefit of using a text element.
+- ❌ **Safari's rendering engine can't cope**: Even using `will-change:transform` on the path elements does not help Safari render each letter's sinking animation
+
+### What's next?
+
+Clearly, **Attempt 3: SVG Text Animation** is the best approach. It is flexible. It is accessible. It requires no dependencies. It works well in 2/3 browsers and I'm confident that I can find a workaround for Firefox.
+
+Although letters can't be transformed to get the mask effect I want, I have some ideas of how to accomplish this effect without having to transform the text.
+
+Namely:
+
+- dynamically inserting a second mask once the letter animation completes
+
+- animating the dynamic mask to reveal the background image (instead of relying on a text transform to accomlish this)
+
+Stay tuned for the final animation!
+
+## TODOS
+
+- [ ] Fix firefox animation bug
+- [ ] Browser test for responsivity
+- [ ] Accessibility testing
+- [ ] Rendering performance optimizations
+- [ ] Finalize the ocean sounds landing page

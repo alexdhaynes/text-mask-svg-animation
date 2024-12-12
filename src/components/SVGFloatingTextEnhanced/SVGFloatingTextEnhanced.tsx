@@ -223,7 +223,7 @@ const SVGFloatingTextEnhanced = ({ text }: FloatingTextProps) => {
               id="underwater-image"
               href="/underwater.jpg"
               width="100%"
-              height="102%" /* a little extra height to cover small gap */
+              height="100%"
               mask="url(#letterMask)"
               preserveAspectRatio="xMidYMid slice"
             />
