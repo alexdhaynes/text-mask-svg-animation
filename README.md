@@ -211,13 +211,13 @@ Firefox doesn't run the animation when there are complex easing properties on th
 
 It will take some research to dig into why Safari and Chrome handle SVG animation structured this way, but Firefox does not. Here's my process for researching browser-specific bugs:
 
-#### My process for diving into odd-man-out browser behavior
+#### My process for diving into odd-man-out browser behavior 🕵🏾‍♀️
 
-- Read the [SVG animate spec](https://www.w3.org/TR/SVG11/animate.html#AnimateElement) and ensure all `<animate>` attributes are being used to spec
+- 📚 Read the [SVG animate spec](https://www.w3.org/TR/SVG11/animate.html#AnimateElement) and ensure all `<animate>` attributes are being used to spec
 
-- Search for similar problems posted in the [Mozilla support forum](https://support.mozilla.org/ca/questions/firefox)
+- 🔍 Search for similar problems posted in the [Mozilla support forum](https://support.mozilla.org/ca/questions/firefox)
 
-- Look through Mozilla's issue tracker, [Bugzilla](https://bugzilla.mozilla.org/home), for any bugs related to SVG animaiton
+- 🪲 Look through Mozilla's issue tracker, [Bugzilla](https://bugzilla.mozilla.org/home), for any bugs related to SVG animaiton
 
 ## Attempt 4: Adding the letter expand effect with SVG Paths
 
