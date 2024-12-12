@@ -223,9 +223,7 @@ It will take some research to dig into why Safari and Chrome handle SVG animatio
 
 The next step is to add the expand effect once the letters settle at the bottom of the viewport. But there is a problem with our current SVG implementation: `<tspan>` elements can't be transformed with `<animateTransform>`.
 
-Since the ability to change text dynamically is not critical to the landing page, there is no real issue with using predefined `<path>` elements for each letter. We lose the ability to change the text dynamically, but we'll gain huge flexibility in animation, plus a better path to performance optimization.
-
-So let's try using letter `<path>` elements directly instead of `<text> > <tspan>`. If we find that we need the ability to dynamically change the text, we'll revisit writing a function that will convert text strings into `<path>` elements.
+Let's try using letter `<path>` elements directly instead of `<text> > <tspan>`. If we need the ability to dynamically change the text, we can add paths for each letter to our `LETTER_PATH_DATA` object.
 
 ... (4 hours later)
 
@@ -258,11 +256,11 @@ The structure using `<path>`:
 
 It's been a few hours and I have implemented a basic animation using `<path>` elements for each letter, all grouped in a `<g>` tag. But there are some MAJOR drawbacks already.
 
-- ❌ **Manual labor**: we have to convert the text to paths in Illustrator, then manually simplify the points in each path
-- ❌ **No kerning**: By using `<path>` instead of `<text> > <tspan>`, we lose the font's natural kerning. There is an uncanny-valley effect when manually setting the letter spacing.
+- ❌ **Manual labor**: we have to convert the text to paths in Figma/Illustrator, then manually simplify the points in each path in Illustrator
+- ❌ **No kerning**: By using `<path>` instead of `<text> > <tspan>`, we lose the font's natural kerning. There is an uncanny-valley effect when manually setting the letter spacing. Each letter will have unique spacing, which we'll have to manually define.
 - ❌ **Not dynamic**: We can't dynamically update the text or font, since we are using predefined paths. We _could_ create a predefined path for every letter, but we would still be restricted to one font only.
 - ❌ **Not inherently accessible**: We lose the inherent accessibility benefit of using a text element.
-- ❌ **Safari's rendering engine can't cope**: Even using `will-change:transform` on the path elements does not help Safari render each letter's sinking animation
+- ❌ **Safari's rendering engine can't cope**: Even using `will-change:transform` on the path elements does not help Safari render each letter's sinking animation. It's very janky.
 
 ### What's next?
 
