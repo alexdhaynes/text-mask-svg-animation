@@ -264,7 +264,7 @@ It's been a few hours and I have implemented a basic animation using `<path>` el
 
 ### What's next?
 
-Clearly, **Attempt 3: SVG Text Animation** is the best approach. It is flexible. It is accessible. It requires no dependencies. It works well in 2/3 browsers and I'm confident that I can find a workaround for Firefox.
+Clearly, **[Attempt 3: SVG Text Animation](https://github.com/alexdhaynes/text-mask-svg-animation?tab=readme-ov-file#attempt-3-svg-text-animation-refined)** is the best approach. It is flexible. It is accessible. It requires no dependencies. It works well in 2/3 browsers and I'm confident that I can find a workaround for Firefox.
 
 Although letters can't be transformed to get the mask effect I want, I have some ideas of how to accomplish this effect without having to transform the text.
 
