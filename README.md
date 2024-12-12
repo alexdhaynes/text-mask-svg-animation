@@ -1,4 +1,6 @@
-# Floating Letters Animation (a work in progress)
+# Floating Letters Animation
+
+**a work in progress!**
 
 ## The Vision
 
