@@ -279,6 +279,7 @@ Stay tuned for the final animation!
 ## TODOS
 
 - [ ] Fix firefox animation bug
+- [ ] Implement mask dissolve effect to transition to ocean sounds landing page
 - [ ] Browser test for responsivity
 - [ ] Accessibility testing
 - [ ] Rendering performance optimizations
